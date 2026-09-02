@@ -8,8 +8,9 @@ KEYWORDS = {
 }
  
 def guess_category(description: str) -> str:
+    text = description.lower()
     for category, words in KEYWORDS.items():
         for w in words:
-            if w in description:      # <-- bug: exact case match only
+            if w.lower() in text:
                 return category
     return "other"
